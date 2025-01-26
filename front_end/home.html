@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="styles/general.css">
         <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="styles/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <header class="header">
@@ -29,10 +30,16 @@
                     <p class="title">Fish Specie Classifier</p>
                     <p class="subtitle">A classification model which can classify up to <span class="subtitle-span">18</span> species!</p>
                 </div>
+                
                 <div class="home-section-2">
-                    <img src="icons/upload.svg" alt="">
-                    <p>Drag or upload an Image File</p>
-                    <button onclick="showContent('upload')">Choose Image</button>
+                    <label for="input-file" id="drop-area">
+                        <img src="icons/upload.svg" alt="">
+                        <p>Drag or upload an Image File</p>
+                        <input type="file" accept="image/*" id="input-file" hidden>
+                        <button>Choose Image</button>
+                        <!--<span>No file chosen</span>-->
+                    </label>
+                    <!--<button id="identify-button" onclick="showContent('result')" style="display: none;">Identify</button>-->
                 </div>
             </section>
             <!-- Donate Section -->
@@ -53,8 +60,8 @@
                 <p>Learn how to use FishID.</p>
             </section>
 
-            <!-- Upload Section (New Section that will be shown after clicking "Choose Image") -->
-            <section id="upload" class="content-section" style="display:none;"> 
+            <!-- Result Section (New Section that will be shown after clicking "Choose Image") -->
+            <section id="result" class="content-section" style="display:none;"> 
                 <div class="result-section-1">
                     <p>Fish Specie Classifier</p>
                     <input type="text" value="fish_000004210001_0019.jpg" readonly>
@@ -63,7 +70,7 @@
                         <button class="retry-btn">Retry</button>
                     </div>
                 </div>
-    
+
                 <div class="result-section-2">
                     <div class="left">
                         <p class="p1">Basline</p>
@@ -81,6 +88,21 @@
                         <p class="p3">Barracuda</p>
                         <p class="p4">91% AC</p>
                     </div>
+                </div>
+
+                <div class="result-section-3" onclick="toggleAdditionalContent()">
+                    <p>Scroll down for more details </p>
+                    <img src="icons/arrow_down.svg" alt="">
+                </div>
+
+                <!-- Additional content hidden initially -->
+                <div class="result-section-3-scrolldown" id="additional-content" style="display: none;">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu efficitur nibh. Aliquam nec eros tempor, sodales felis vitae, imperdiet odio. Morbi pellentesque, nunc ac mattis varius, odio nulla suscipit ipsum, in ullamcorper dui quam id eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur condimentum posuere felis eu dapibus. Ut suscipit congue accumsan. Curabitur ut velit leo.</p>
+                </div>
+
+                <div class="result-section-4">
+                    <h3>Top 5 Match Species</h3>
+                    <canvas id="topSpeciesChart"></canvas>
                 </div>
             </section>
         </main>

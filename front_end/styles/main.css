@@ -1,7 +1,6 @@
 main {
     color: white;
     background-color: black;
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -11,8 +10,10 @@ main {
     margin-top: 60px;
     overflow: auto;
 }
+
 /*=========================== HOME PAGE */
-.home-section-1 {
+.home-section-1,
+.home-section-2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,15 +32,15 @@ main {
     font-weight: bold;
 }
 
-.home-section-2 {
+#drop-area{
+    width: 500px;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(29, 155, 240);
     border-radius: 10px;
-    padding-left: 150px;
-    padding-right: 150px;
     padding-top: 50px;
     padding-bottom: 50px;
+    margin-bottom: 50px;
 
     display: flex;
     flex-direction: column;
@@ -47,17 +48,22 @@ main {
     align-items: center;
 }
 
-.home-section-2 img {
+#drop-area img {
     height: 50px;
-    idth: 50px;
+    width: 50px;
     margin-bottom: 20px;
 }
 
-.home-section-2 p {
+#drop-area p {
     margin-bottom: 20px;
 }
 
-.home-section-2 button {
+#drop-area input {
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+#drop-area button {
     color: white;
     background-color: rgb(29, 155, 240);
     font-weight: bold;
@@ -66,6 +72,20 @@ main {
     cursor: pointer;
     padding: 10px 50px 10px 50px;
 }
+
+#drop-area span {
+    
+}
+
+#identify-button {
+    color: rgb(29, 155, 240);
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 15px 10px 15px;
+}
+
 /*=========================== RESULT PAGE */
 
 .result-section-1 {
@@ -116,10 +136,11 @@ main {
 }
 
 .result-section-2 {
-    width: 60%;
+    width: 800px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 .result-section-2 .left,
@@ -183,3 +204,25 @@ main {
 .result-section-2 .center p {
     font-weight: bold;
 }
+
+.result-section-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.result-section-3-scrolldown {
+    text-align: justify;
+    width: 800px;
+}
+
+.result-section-4 {
+    max-width: 800px;
+    margin-top: 75px;
+    text-align: center;
+}
+
+
+
